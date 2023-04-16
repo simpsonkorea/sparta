@@ -23,23 +23,19 @@
         <h2 class="text-white">집에 있는 물건을 팝니다!</h2>
     </div>
     <!-- 여기 -->
-    <style>
-        .card {
-          margin-bottom: 20px;
-        }
-      
-        .card-subtitle {
-          font-weight: bold;
-          font-size: 1.25rem;
-        }
-      
-        @media (min-width: 768px) {
-          .card-columns {
-            column-count: 3;
-            column-gap: 1.25rem;
+    <script>
+        function shareProduct(title, price, url) {
+          if (navigator.share) {
+            navigator.share({
+              title: title,
+              text: `${title}: ${price}에 구매하기!`,
+              url: url,
+            });
+          } else {
+            alert("이 기능은 모바일에서만 사용 가능합니다.");
           }
         }
-      </style>
+      </script>
       
       <div class="container">
         <div class="row gx-4 gy-4">
@@ -50,7 +46,8 @@
                 <h5 class="card-title">전기밥솥</h5>
                 <h6 class="card-subtitle mb-2 text-muted">5만원</h6>
                 <p class="card-text">한 번 밖에 안쓴 전기밥솥 팝니다. 부모님이 독립 할 때 주신 거에요!</p>
-                <a href="https://spartacodingclub.kr" target="_blank" class="btn btn-primary">전기밥솥: 5만원에 구매하기</a>
+                <a href="https://example.com/product/1" target="_blank" class="btn btn-primary">전기밥솥: 5만원에 구매하기</a>
+                <button onclick="shareProduct('전기밥솥', '5만원', 'https://example.com/product/1')" class="btn btn-secondary">공유하기</button>
               </div>
             </div>
           </div>
@@ -61,7 +58,8 @@
                 <h5 class="card-title">엘쥐 그램 노트북</h5>
                 <h6 class="card-subtitle mb-2 text-muted">100만원</h6>
                 <p class="card-text">거의 새 것처럼 깨끗한 엘쥐 그램 노트북 팝니다. 성능 좋고 가벼워요!</p>
-                <a href="https://spartacodingclub.kr" target="_blank" class="btn btn-primary">엘쥐 그램 노트북: 100만원에 구매하기</a>
+                <a href="https://example.com/product/2" target="_blank" class="btn btn-primary">엘쥐 그램 노트북: 100만원에 구매하기</a>
+                <button onclick="shareProduct('엘쥐 그램 노트북', '100만원', 'https://example.com/product/2')" class="btn btn-secondary">공유하기</button>
               </div>
             </div>
           </div>
@@ -72,9 +70,14 @@
                 <h5 class="card-title">테슬라 모델3</h5>
                 <h6 class="card-subtitle mb-2 text-muted">6000만원</h6>
                 <p class="card-text">테슬라 모델3 중고 팝니다. 성능 좋고 충전도 빠르게 됩니다.</p>
-                <a href="https://spartacodingclub.kr target="_blank" class="btn btn-primary">테슬라 모델3: 6000만원에 구매하기</a>
-      
-      
+                <a href="https://example.com/product/3" target="_blank" class="btn btn-primary">테슬라 모델3: 6000만원에 구매하기</a>
+                <button onclick="shareProduct('테슬라 모델3', '6000만원', 'https://example.com/product/3')" class="btn btn-secondary">공유하기</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+            
 </body>
 
 </html>
